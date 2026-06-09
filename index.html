@@ -227,7 +227,68 @@
   }
 
   @media (max-width: 480px) {
-    .card { padding: 28px 18px 22px; border-radius: 18px; }
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #bg-video {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    .wrap {
+      height: 100vh;
+      min-height: unset;
+      padding: 24px 16px;
+      overflow: hidden;
+    }
+
+    .card {
+      padding: 20px 16px 18px;
+      border-radius: 18px;
+      max-width: 100%;
+    }
+
+    .avatar {
+      width: 54px;
+      height: 54px;
+      margin-bottom: 10px;
+    }
+
+    .name { font-size: 14px; margin-bottom: 6px; }
+
+    .bio {
+      font-size: 11px;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .divider { margin-bottom: 12px; }
+
+    .links { gap: 6px; }
+
+    .link {
+      padding: 9px 12px;
+      font-size: 12px;
+      gap: 10px;
+    }
+
+    .link-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 7px;
+    }
+
+    .link-icon svg { width: 12px; height: 12px; }
+    .link-icon img { width: 16px !important; height: 16px !important; }
+
+    .link-label { font-size: 12px; }
+    .link-sub { font-size: 10px; }
   }
 
 </style>
@@ -306,25 +367,11 @@
         </span>
         
       </a>
-      <!--
-      <a href="mailto:your@email.com" class="link">
-        <span class="link-icon">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-          </svg>
-        </span>
-        <span class="link-body">
-          <span class="link-label">Email</span>
-          <span class="link-sub">your@email.com</span>
-        </span>
-        
-      </a>
-      -->
+    
 
     </div>
   </div>
 
-  <p class="foot">Walid Ait Miloud · 2025</p>
 </div>
 </body>
 </html>
