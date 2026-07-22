@@ -313,13 +313,17 @@
 </head>
 <body>
 <div id="bg-poster"></div>
-<video id="bg-video" src="assets/BGVID.mp4" poster="assets/poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
+<video id="bg-video" src="assets/BGVID.mp4" poster="assets/poster.jpg" autoplay muted loop playsinline preload="auto"></video>
 <script>
-  // Some browsers stall muted autoplay — force it, and retry on first interaction.
+  // Some browsers stall muted autoplay — force it, retry on first interaction,
+  // and surface load failures so a missing/mis-cased file isn't a silent bug.
   const v = document.getElementById('bg-video');
   const tryPlay = () => v.play().catch(() => {});
   tryPlay();
   document.addEventListener('pointerdown', tryPlay, { once: true });
+  v.addEventListener('error', () => {
+    console.error('bg-video failed to load:', v.currentSrc || v.src, v.error);
+  });
 </script>
 <div class="wrap">
   <div class="card">
@@ -352,7 +356,7 @@
           <span class="link-label">Zellige for After Effects</span>
           <span class="link-sub">Turn any footage into pixel-texture animation</span>
         </span>
-        <span class="badge">v1.0</span>
+        <span class="badge">v2.0</span>
       </a>
 
       <!-- INSTAGRAM -->
