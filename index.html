@@ -198,7 +198,7 @@
     outline-offset: 2px;
   }
 
-  /* ── FEATURED — ZELLIGE (the one card allowed to be loud) ── */
+  /* ── FEATURED — ZELLIGE (green) ── */
   .link.featured {
     background: #262708;
     border-color: rgba(212,240,0,0.25);
@@ -214,6 +214,12 @@
   .link.featured .link-icon {
     background: rgba(212,240,0,0.12);
   }
+  .link.featured .link-icon .square {
+    width: 14px;
+    height: 14px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
   .link.featured .link-label {
     color: var(--accent);
     font-weight: 600;
@@ -221,6 +227,48 @@
   }
   .link.featured .link-sub {
     color: rgba(237,237,237,0.55);
+  }
+
+  /* ── FEATURED — LIQUID BUBBLE (violet + pink, sampled from the plug-in's icon) ── */
+  .link.bubble {
+    background: #1b1440;
+    border-color: rgba(164,132,255,0.32);
+    padding: 15px;
+  }
+  .link.bubble::before {
+    background: linear-gradient(110deg, transparent 40%, rgba(249,149,255,0.08) 100%);
+  }
+  .link.bubble:hover {
+    background: #221a50;
+    border-color: rgba(249,149,255,0.5);
+  }
+  .link.bubble:focus-visible { outline-color: #f995ff; }
+  /* Icon art has a white backdrop — crop to the bubble itself */
+  .link.bubble .link-icon {
+    background: none;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .link.bubble .link-icon img {
+    width: 120%;
+    height: 120%;
+    flex-shrink: 0;
+    object-fit: cover;
+  }
+  .link.bubble .link-label {
+    align-self: flex-start;
+    background: linear-gradient(90deg, #a484ff, #f995ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+  .link.bubble .link-sub {
+    color: rgba(237,237,237,0.55);
+  }
+  .link.bubble .badge {
+    background: linear-gradient(90deg, #a484ff, #f995ff);
   }
 
   .badge {
@@ -298,11 +346,12 @@
     .links { gap: 7px; }
 
     .link { padding: 11px 13px; gap: 11px; }
-    .link.featured { padding: 13px; }
+    .link.featured, .link.bubble { padding: 13px; }
 
     .link-icon { width: 30px; height: 30px; border-radius: 8px; }
     .link-icon svg { width: 13px; height: 13px; }
     .link-icon img { width: 19px; height: 19px; }
+    .link.featured .link-icon .square { width: 12px; height: 12px; }
 
     .link-label { font-size: 12.5px; }
     .link-sub { font-size: 10.5px; }
@@ -347,10 +396,22 @@
     ══════════════════════════════════════════════ -->
     <div class="links">
 
-      <!-- ZELLIGE — featured first -->
+      <!-- LIQUID BUBBLE — newest, first -->
+      <a href="https://yllead.gumroad.com/l/sjqjx/LiquidBubble20" class="link bubble" target="_blank" rel="noopener">
+        <span class="link-icon">
+          <img src="assets/liquid-bubble.png" alt="">
+        </span>
+        <span class="link-body">
+          <span class="link-label">Liquid Bubble for After Effects</span>
+          <span class="link-sub">Liquid bubble effect, available on Gumroad</span>
+        </span>
+        <span class="badge">New</span>
+      </a>
+
+      <!-- ZELLIGE -->
       <a href="https://yllead.gumroad.com/l/ZELLIGEplugin" class="link featured" target="_blank" rel="noopener">
         <span class="link-icon">
-          <img src="assets/favicon.png" alt="">
+          <span class="square"></span>
         </span>
         <span class="link-body">
           <span class="link-label">Zellige for After Effects</span>
